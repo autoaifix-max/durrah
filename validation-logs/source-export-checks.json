@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "quantity_max_99": true,
+    "mobile_cart_dock": true,
+    "mobile_checkout_dock": true,
+    "safe_area_support": true,
+    "16px_input_sizing": true,
+    "no_real_checkout_api": true,
+    "existing_export_html_pages": true,
+    "export_has_menu": true,
+    "export_has_cart": true,
+    "export_has_checkout": true,
+    "export_has_tracking": true,
+    "export_has_arabic_rtl": true
+  },
+  "passed": 12,
+  "total": 12,
+  "note": "Structural checks only. Does not imply a fresh build or browser journey succeeded."
+}

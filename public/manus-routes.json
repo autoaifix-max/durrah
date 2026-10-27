@@ -1,0 +1,64 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "درة العنب — الرئيسية"
+    },
+    {
+      "path": "/menu/",
+      "title": "درة العنب — قائمة الطعام"
+    },
+    {
+      "path": "/menu/cart/",
+      "title": "درة العنب — السلة التجريبية"
+    },
+    {
+      "path": "/menu/checkout/",
+      "title": "درة العنب — إكمال الطلب التجريبي"
+    },
+    {
+      "path": "/menu/tracking/",
+      "title": "درة العنب — تأكيد الطلب والتتبع"
+    },
+    {
+      "path": "/menu/branches/",
+      "title": "درة العنب — اختيار الفرع التجريبي"
+    },
+    {
+      "path": "/menu/grape-classic/",
+      "title": "ورق عنب كلاسيك — درة العنب"
+    },
+    {
+      "path": "/menu/grape-spicy/",
+      "title": "ورق عنب سبايسي — درة العنب"
+    },
+    {
+      "path": "/menu/cabbage-classic/",
+      "title": "ملفوف كلاسيك — درة العنب"
+    },
+    {
+      "path": "/menu/cabbage-spicy/",
+      "title": "ملفوف سبايسي — درة العنب"
+    },
+    {
+      "path": "/menu/fatteh/",
+      "title": "فتة ورق عنب — درة العنب"
+    },
+    {
+      "path": "/menu/fatteh-large/",
+      "title": "فتة ورق عنب كبير — درة العنب"
+    },
+    {
+      "path": "/menu/kibbeh-chicken/",
+      "title": "كبة دجاج — درة العنب"
+    },
+    {
+      "path": "/menu/kibbeh-meat/",
+      "title": "كبة لحم — درة العنب"
+    },
+    {
+      "path": "/menu/mahshi/",
+      "title": "محاشي مشكلة — درة العنب"
+    }
+  ]
+}
