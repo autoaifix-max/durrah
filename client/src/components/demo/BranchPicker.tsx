@@ -38,8 +38,17 @@ export default function BranchPicker({
         <span className="d-menu-eyebrow">هوية واحدة، في كل الفروع</span>
         <h1>اختر فرعك</h1>
         <p>
-          فروع مرقّمة لتجربة العرض. الأسماء والعناوين الفعلية تضاف عند التفعيل.
+          ١٢ فرعًا في ست مدن. فروع مرقّمة لتجربة العرض؛ أسماء الفروع والعناوين الفعلية تضاف عند اعتمادها.
         </p>
+        <div className="branch-city-counts" aria-label="عدد الفروع حسب المدينة">
+          {Array.from(new Map(demoBranches.map(branch => [branch.city, demoBranches.filter(item => item.city === branch.city).length])))
+            .filter(([city]) => city)
+            .map(([city, count]) => (
+              <span className="branch-city-count" key={city}>
+                {city} <strong>{new Intl.NumberFormat("ar-SA", { useGrouping: false }).format(count)}</strong>
+              </span>
+            ))}
+        </div>
       </div>
       <fieldset className="demo-branches">
         <legend className="sr-only">اختيار الفرع التجريبي</legend>

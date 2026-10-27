@@ -28,7 +28,7 @@ export interface Branch {
 export const brand = {
   name: "درة العنب",
   tagline: "طازج يومياً",
-  branchCount: 9,
+  branchCount: 12,
   copyrightYear: 2026,
   assets: {
     logo: "/manus-storage/logo_4b0c98f3.svg",
@@ -119,21 +119,28 @@ export const categories: ProductCategory[] = [
   },
 ];
 
-// Ordinals represent incomplete records, not official branch names or locations.
-export const branches: Branch[] = Array.from(
-  { length: brand.branchCount },
-  (_, index) => ({
-    id: `branch-record-${index + 1}`,
-    ordinal: index + 1,
-    name: null,
-    address: null,
-    city: null,
-    phone: null,
-    hours: null,
-    mapsUrl: null,
-    externalId: null,
-  })
-);
+// City assignments are editable business data supplied for the 12-branch directory.
+// Branch names, street addresses, phones, hours and map pins remain unverified and blank.
+export const branchCities = [
+  "عنيزة", "عنيزة",
+  "بريدة", "بريدة",
+  "حائل", "حائل", "حائل",
+  "الرس", "الرس",
+  "الرياض",
+  "حفر الباطن", "حفر الباطن",
+] as const;
+
+export const branches: Branch[] = branchCities.map((city, index) => ({
+  id: `branch-record-${index + 1}`,
+  ordinal: index + 1,
+  name: null,
+  address: null,
+  city,
+  phone: null,
+  hours: null,
+  mapsUrl: null,
+  externalId: null,
+}));
 
 export function formatArabicNumber(value: number): string {
   return new Intl.NumberFormat("ar-SA", { useGrouping: false }).format(value);

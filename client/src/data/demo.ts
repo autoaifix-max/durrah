@@ -29,6 +29,7 @@ export interface CartLine {
 export interface DemoBranch {
   id: string;
   ordinal: number;
+  city: string;
   label: string;
 }
 
@@ -39,7 +40,8 @@ export interface DemoBranch {
 export const demoBranches: readonly DemoBranch[] = branches.map(branch => ({
   id: branch.id,
   ordinal: branch.ordinal,
-  label: `فرع تجريبي${formatArabicNumber(branch.ordinal)}`,
+  city: branch.city ?? "",
+  label: `فرع تجريبي ${formatArabicNumber(branch.ordinal)}${branch.city ? ` — ${branch.city}` : ""}`,
 }));
 
 export interface DemoCartItem {

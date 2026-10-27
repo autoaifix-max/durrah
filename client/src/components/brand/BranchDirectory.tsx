@@ -30,9 +30,21 @@ export default function BranchDirectory({
           <p>اختر الفرع لعرض بياناته.</p>
         </div>
       </div>
+      <div className="branch-city-counts" aria-label="عدد الفروع حسب المدينة">
+        {Array.from(
+          items.reduce((counts, item) => {
+            if (item.city) counts.set(item.city, (counts.get(item.city) ?? 0) + 1);
+            return counts;
+          }, new Map<string, number>())
+        ).map(([city, count]) => (
+          <span className="branch-city-count" key={city}>
+            {city} <strong>{formatArabicNumber(count)}</strong>
+          </span>
+        ))}
+      </div>
       <div className="branch-picker">
         <label htmlFor="branch-choice">
-          الفرع <span>{formatArabicNumber(items.length)} سجلات</span>
+          الفرع <span>{formatArabicNumber(items.length)} فرعًا</span>
         </label>
         <select
           id="branch-choice"
@@ -69,7 +81,7 @@ export default function BranchDirectory({
           </div>
           <div>
             <dt>العنوان</dt>
-            <dd>{branch.address ?? "يُضاف بعد الاعتماد"}</dd>
+            <dd>{branch.address ?? "سيتم تحديث معلومات الموقع قريبًا"}</dd>
           </div>
           <div>
             <dt>أوقات العمل</dt>
@@ -96,7 +108,7 @@ export default function BranchDirectory({
       </div>
       <p className="branch-integrity-note">
         <Check size={15} aria-hidden="true" /> نعرض بيانات الفروع بعد اعتمادها،
-        دون مواقع افتراضية.
+        دون مواقع افتراضية. لا تظهر خرائط Google إلا بعد اعتماد رابط صحيح.
       </p>
     </div>
   );

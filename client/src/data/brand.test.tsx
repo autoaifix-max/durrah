@@ -36,15 +36,16 @@ describe("approved brand content", () => {
         expect(variant).not.toHaveProperty("price");
     }
   });
-  it("has nine incomplete records without fictional names or contacts", () => {
-    expect(branches).toHaveLength(9);
-    expect(new Set(branches.map(item => item.id)).size).toBe(9);
+  it("has twelve branch records with editable city assignments and no fictional contacts", () => {
+    expect(branches).toHaveLength(12);
+    expect(new Set(branches.map(item => item.id)).size).toBe(12);
+    expect(Object.fromEntries([...new Set(branches.map(item => item.city))].map(city => [city, branches.filter(item => item.city === city).length]))).toEqual({ "عنيزة": 2, "بريدة": 2, "حائل": 3, "الرس": 2, "الرياض": 1, "حفر الباطن": 2 });
     expect(
       branches.every(
         item =>
           item.name === null &&
           item.address === null &&
-          item.city === null &&
+          item.city !== null &&
           item.phone === null &&
           item.hours === null &&
           item.mapsUrl === null
@@ -86,7 +87,7 @@ describe("approved brand content", () => {
     expect(brand.assets.interiorOriginal).not.toBe(brand.assets.interior);
   });
   it("formats branch ordinals in Arabic", () => {
-    expect(formatArabicNumber(9)).toBe("٩");
+    expect(formatArabicNumber(12)).toBe("١٢");
   });
 });
 

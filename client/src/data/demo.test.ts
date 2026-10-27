@@ -111,12 +111,14 @@ describe("demo catalog cart", () => {
 
 describe("demo-only branches and orders", () => {
   it("derives ordinal demo labels without real branch fields", () => {
-    expect(demoBranches).toHaveLength(9);
+    expect(demoBranches).toHaveLength(12);
     expect(demoBranches[0]).toEqual({
       id: "branch-record-1",
       ordinal: 1,
-      label: "فرع تجريبي١",
+      city: "عنيزة",
+      label: "فرع تجريبي ١ — عنيزة",
     });
+    expect(Object.fromEntries([...new Set(demoBranches.map(branch => branch.city))].map(city => [city, demoBranches.filter(branch => branch.city === city).length]))).toEqual({ "عنيزة": 2, "بريدة": 2, "حائل": 3, "الرس": 2, "الرياض": 1, "حفر الباطن": 2 });
     expect(JSON.stringify(demoBranches)).not.toContain("phone");
     expect(JSON.stringify(demoBranches)).not.toContain("address");
   });
